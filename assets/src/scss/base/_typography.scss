@@ -1,0 +1,63 @@
+// Typography
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+.h {
+	font-family: $base-font;
+	font-weight: 400;
+	margin: 0 0 0.5em;
+	color: inherit;
+	letter-spacing: 0.01em;
+}
+
+h1, .h1 {
+	font-size: $h1-font-size;
+	font-family: $base-font;
+}
+
+h2, .h2 {
+	font-size: $h2-font-size;
+}
+
+h3, .h3 {
+	font-size: $h3-font-size;
+}
+
+h4, .h4 {
+	font-size: $h4-font-size;
+	letter-spacing: 0.02em;
+}
+
+h5, .h5 {
+	font-size: $h5-font-size;
+}
+
+h6, .h6 {
+	font-size: $h6-font-size;
+}
+
+p {
+	margin: 0 0 1em;
+	line-height: 1.6;
+}
+
+a {
+	color: $base-link-color;
+	@include animate(color font-weight opacity);
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+ul {
+	&[class]{
+	  @extend %listreset;
+	}
+}

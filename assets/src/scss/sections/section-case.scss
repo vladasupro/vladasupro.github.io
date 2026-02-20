@@ -1,0 +1,42 @@
+.section-case {
+    padding: 0 0 6vw;
+
+   &-steps {
+        & > li {
+            &:not(:last-of-type) {
+                margin: 0 0 5.2em;
+
+            }
+        }
+        
+        .card {
+
+            &-top {
+                background-color: $light-grey;
+                padding: 20px;
+                border-radius: 12px;
+                height: 100%;
+                margin: 0 0 2em;
+                img {
+                    border-radius: 5px;
+                    overflow: hidden;
+
+                }
+
+            }
+
+            &-bottom {
+                padding: 0 20px;
+                @include media('>=tablet') {
+                    max-width: 720px;
+                    margin: 0 auto;
+                }
+                h5 {
+                    text-transform: uppercase;
+                    margin: 0 0 1em;
+                }
+            }
+
+        }
+   }
+}

@@ -1,0 +1,105 @@
+.footer {
+    flex-shrink: 0;
+    padding: 10vw 0 18px;
+
+    .container {
+        position: relative;
+    }
+
+    &-social {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 2em;
+        @include media('>=desktop') {
+            display: grid;
+            grid-template-rows:none;
+            grid-template-columns: 1fr 1fr 1fr;
+            // column-gap: 36px;
+            max-width: 810px;
+        }
+        
+        li {
+            // padding: 0 13px;
+            a {
+                h4 {
+                    text-transform: uppercase;
+                    color: $dark;
+                    margin: 0;
+                    @include media('>=desktop') {
+                        padding: 0 0 1em;
+                    }
+
+                }
+                span:not(.sr-only) {
+                    color: $grey;
+                    font-size: 18px;
+                    font-weight: 300;
+
+                }
+            }
+        }
+    }
+
+    .copyright {
+        margin: 10vw 0 0;
+        p{
+            font-size: 14px;
+            color: $grey;
+            margin: 0;
+            // display: flex;
+            // align-items: center;
+            font-weight: 300;
+
+        }
+        .icon-favorite {
+            display: inline-block;
+            vertical-align: middle;
+            color: #FD612E;
+            padding: 0 4px;
+            cursor: pointer;
+            @include animate(transform);
+            
+            &:hover {
+                animation: beat .25s infinite alternate;
+	            transform-origin: center;
+            }
+        }
+    }
+
+    .back-to-top {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        background-color: $accent;
+        color: $white;
+        font-size: 1.4em;
+        text-align: center;
+        width: 56px;
+        height: 120px;
+        border-radius: 3em;
+        @include animate(background-color);
+        @include media('>=tablet') {
+            right: 30px;
+        }
+
+           
+        &::before {
+            display: inline-block;
+            @include animate(transform);
+            transform: translateY(0);
+        }
+    
+        &:hover {
+            background-color: darken($color: #1e2dce, $amount: 0);
+            
+            &::before{
+                transform: translateY(-16px);
+            }
+        }
+    }
+}
+
+
+@keyframes beat{
+	to { transform: scale(1.4); }
+}

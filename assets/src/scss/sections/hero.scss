@@ -1,0 +1,297 @@
+.hero {
+    position: relative;
+    padding: 64px 0 64px;
+    
+    @include media('>=phone') {
+        min-height: calc(100vh - 80px);
+        display: flex;
+        align-items: center;
+    }
+
+    &-inner {
+        max-width: 920px;
+        margin: 0 auto;
+        position: relative;
+
+
+        &-text {
+            margin-bottom: 24px;
+            h1 {
+                opacity: 0;
+                position: absolute;
+                z-index: -1;
+            }
+            
+        }
+        &-img {
+            display: none;
+            @include media('>=phone') {
+                top: 6px;
+                right: 0;
+                width: 27vw;
+                height: 10vw;
+                position: absolute;
+                overflow: hidden;
+                border-radius: 60px;
+                display: block;
+            }
+            @include media('>=desktop') {
+                top: 18px;
+                right: 0;
+                width: 272px;
+                height: 87px;
+            }
+            img {
+                @include coverImage;
+                left: 1px;
+                top: -1px;
+            }
+        }
+
+        &-subtext {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            text-align: right;
+            margin: 0 -25px;
+            p {
+                padding: 0 25px;
+                color: $grey;
+                font-weight: 300;
+            }
+        }
+
+        
+    }
+
+    .btn-next-section {
+        position: absolute;
+        bottom: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2em;
+        color: $accent;
+        display: block;
+        width: 56px;
+        height: 56px;
+        @include media('<phone') {
+            display: none;
+        }
+        &:hover {
+            &::before {
+                animation: jumpInfinite 1.5s infinite;
+            }
+        }
+
+
+        &::before {
+            transform: rotate(180deg);
+            transform-origin: center;
+            display: inline-block;
+        }
+    }
+   
+    h2 {
+    margin: 0 0 13px;
+    font-size: 9vw;
+
+        @include media('>=desktop') {
+            font-size: 92px;
+            margin: 0 0 16px;
+        }
+    }
+}
+
+.about {
+    padding: 6vw 0 10vw;
+    &-inner {
+        
+        max-width: 720px;
+        margin: 0 auto;
+        @include media('>=phone') {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &-image {
+            position: relative;
+            border-radius: 50%;
+            background-color: $light-grey;
+            overflow: hidden;
+            margin: 0 0 4em;
+            @include media('<phone') {
+                @include aspectRatioImageSquare;
+
+            }
+            @include media('>=phone') {
+                width: 270px;
+                min-width: 182px;
+                height: auto;
+                min-height: 560px;
+                margin: 0 4vw 0 0;
+                border-radius: 200px;
+
+            }
+            
+            img {
+                @include coverImage;
+            }
+        }
+
+        &-text {
+            @include media('>=phone') {
+                max-width: 376px;
+            }
+        }
+    }
+}
+
+.projects {
+    padding: 64px 0 120px;
+    &-inner {
+        &-footer {
+            text-align: center;
+            color: $grey;
+            font-weight: 300;
+        }
+    }
+
+    &-nav {
+        li {
+            border-bottom: 1px solid $grey;
+            margin-bottom: 4em;
+        }
+
+        li a {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            color: $dark;
+
+            img {
+                position: absolute;
+                width: 400px;
+                height: auto;
+                object-fit: cover;
+                transform: translateX(-50%) translateY(-50%);
+                top: 50%;
+                left: 10%;
+                z-index: 1;
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                @include media('<tablet') {
+                    display: none;
+    
+                }
+            }
+
+            h4 {
+                text-transform: uppercase;
+                margin: 0;
+                span {
+                    display: inline-block;
+                    padding-right: 8px;
+                    font-size: inherit;
+                    margin: 0;
+                }
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                padding: 0;
+                position: relative;
+                z-index: -1;
+                
+                p {
+                    display: inline-block;
+                    margin: 0;
+                    @include media('<tablet') {
+                        display: none;
+                    }
+                    
+                }
+                .icon-arrow-up-right {
+                    display: inline-block;
+                    margin-left: 6px;
+                    color: $accent;
+                }
+            }
+        }
+    }
+}
+
+.contacts {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    .container {
+        width: 100%;
+    }
+    &-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 560px;
+        flex-wrap: wrap;
+
+        .btn {
+           margin: 0;
+
+        }
+    }
+
+    &-nav {
+        display: flex;
+        margin: 0 24px 0 -24px!important;
+        li {
+            color: $grey;
+            font-weight: 300;
+
+            font-size: 18px;
+            padding: 0 24px;
+            display: block;
+            span,a {
+                display: block;
+                margin-bottom: 28px;
+
+            }
+            a {
+                color: inherit;
+            }
+        }
+    }
+}
+
+.ticker {
+    padding: 62px 0;
+    pointer-events: none;
+
+    &-wrapper {
+        ul {
+            li {
+                width: initial;
+                cursor: pointer;
+                h5 {
+                    display: inline;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+@keyframes jumpInfinite {
+    0% {
+      margin-bottom: 0;
+    }
+    50% {
+        margin-bottom: 20px;
+    }
+    100% {
+        margin-bottom: 0;
+    }
+  }

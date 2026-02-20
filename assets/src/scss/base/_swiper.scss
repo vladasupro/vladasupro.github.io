@@ -1,0 +1,66 @@
+.swiper {
+    width: 100%;
+    height: 100%;
+
+    .swiper-slide {
+        height: auto;
+    }
+}
+.swiper-nav {
+    position: relative;
+    max-width: 70px;
+    margin: 20px auto 0;
+    height: 35px;
+    @include media('>=tablet') { 
+        max-width: 60px;
+    }
+}
+.swiper-button {
+    &-next,
+    &-prev {
+        color: $dark;
+        
+        &:after {
+            content: "\e905";
+
+	        font-family: 'icomoon' !important;
+            font-size: 28px;
+	        color: inherit;
+            @include media('>=tablet') { 
+                font-size: 20px;
+
+            }
+            
+        }
+
+        &:hover {
+            @include media('>=tablet') {
+            }
+        }
+
+        &.swiper-button-disabled {
+            opacity: 1;
+        }
+
+        &.swiper-button-lock {
+            display: none;
+        }
+        
+    }
+
+    &-next{
+        right: 0;
+    }
+    
+    &-prev {
+        left: 0;
+        &:after {
+            transform: scale(-1);
+        }
+    }
+}
+
+
+.swiper-wrapper{
+    transition-timing-function:linear; 
+}

@@ -1,0 +1,147 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    // background: $light;
+    z-index: 999;
+    flex-shrink: 0;
+    backdrop-filter: blur(5px);
+    
+
+    &:not(.fixed) {
+        .banner + .header__main {
+            padding-top: 48px;
+        }
+    }
+
+    &.fixed {
+        .banner {
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+        }
+    }
+    .case & {
+        position: absolute;
+    }
+
+    .nav-active & {
+
+        height: 100vh;
+        
+        .navbar {
+            display: block;
+            position: absolute;
+            top: 120px;
+            right: 0;
+            text-align: right;
+            width: 100vw;
+            padding: 0 40px;
+            &::after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                top: 0;
+                right: 0;
+                backdrop-filter: blur(5px);
+
+            }
+
+            &-menu {
+                display: block;
+                li{
+                    margin-bottom: 1em;
+                    font-size: 2.2em
+                }
+                
+            }
+
+        }
+    }
+
+    &-wrap {
+        @include animate(width);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 0;
+
+        @include media('>=tablet') {
+            padding: 30px 0;
+        }
+        
+    }
+
+    &-logo {
+        // font-size: 18px;
+        text-transform: uppercase;
+    }
+
+    .navbar {
+        @include media('<tablet') {
+            display: none;
+    
+        }
+        &-menu {
+            display: flex;
+
+            margin: 0 -25px;
+            li {
+                padding: 0 25px;
+                a {
+                    text-transform: uppercase;
+                }
+
+            }
+        }
+    }
+
+    // Burger Menu
+
+    .menu-toggler {
+        margin: 0 -20px 0 0;
+        @include media('>=tablet') {
+            display: none;
+    
+        }
+        &::focus,
+        &::focus-visible {
+            outline: none;
+            background-color: transparent;
+        }
+    }
+.ham {
+    user-select: none;
+    // border: 2px solid $accent;
+    border-radius: 50%;
+    transition: border-radius 300ms ease-in-out;
+    cursor: pointer;
+    
+  }
+  
+  .hamRotate.active {
+    transform: rotate(45deg);
+  }
+  
+  .line {
+    fill: none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke: $accent;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+  
+  .ham1 {
+    .top {stroke-dasharray: 40 139;}
+    .bottom{stroke-dasharray: 40 180;}
+    
+    &.active {
+      .top {stroke-dashoffset: -98px;}
+      .bottom {stroke-dashoffset: -138px;}
+    }
+  }
+  
+
+}
