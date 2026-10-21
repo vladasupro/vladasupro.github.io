@@ -3,11 +3,9 @@
     top: 0;
     left: 0;
     right: 0;
-    // background: $light;
     z-index: 999;
     flex-shrink: 0;
     backdrop-filter: blur(5px);
-    
 
     &:not(.fixed) {
         .banner + .header__main {
@@ -27,7 +25,6 @@
     }
 
     .nav-active & {
-
         height: 100vh;
         
         .navbar {
@@ -75,7 +72,7 @@
     }
 
     &-logo {
-        // font-size: 18px;
+        font-size: 2em;
         text-transform: uppercase;
     }
 
@@ -114,7 +111,6 @@
     }
 .ham {
     user-select: none;
-    // border: 2px solid $accent;
     border-radius: 50%;
     transition: border-radius 300ms ease-in-out;
     cursor: pointer;
@@ -142,6 +138,4 @@
       .bottom {stroke-dashoffset: -138px;}
     }
   }
-  
-
 }

@@ -1,53 +1,7 @@
 import Swiper from 'swiper';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 
 
-function sliderTools() {
-    const sliderContainer = '.ticker-tools'
-    const $container = document.querySelector(sliderContainer);
-    if (!$container) return
-
-    const selectors = {
-        slider: '.ticker-tools-swiper',
-    }
-
-    const swiper = new Swiper(selectors.slider, {
-        modules: [ Autoplay],
-        slidesPerView: 'auto',
-        spaceBetween: 36,
-        watchOverflow: true,
-        centeredSlides: true,
-        loop: true,
-        speed: 6000,
-        allowTouchMove: false,
-        autoplay: {
-            delay: 0,
-        },
-    });
-}
-function sliderSkills() {
-    const sliderContainer = '.ticker-skills'
-    const $container = document.querySelector(sliderContainer);
-    if (!$container) return
-
-    const selectors = {
-        slider: '.ticker-skills-swiper',
-    }
-
-    const swiper = new Swiper(selectors.slider, {
-        modules: [ Autoplay],
-        slidesPerView: 'auto',
-        spaceBetween: 36,
-        watchOverflow: true,
-        centeredSlides: true,
-        loop: true,
-        speed: 6000,
-        allowTouchMove: false,
-        autoplay: {
-            delay: 0,
-        },
-    });
-}
 function sliderLatest() {
     const sliderContainer = '.section-latest-wrap'
     const $container = document.querySelector(sliderContainer);
@@ -79,7 +33,5 @@ function sliderLatest() {
 
 
 export default function sliders() {
-    sliderTools();
-    sliderSkills();
     sliderLatest();
 }

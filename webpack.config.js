@@ -4,6 +4,7 @@ const distFolderPath = './';
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+const { HtmlIncludesPlugin } = require('./build/html-includes');
 // const webpack = require('webpack')
 // const HtmlWebpackSimpleIncludePlugin = require('html-webpack-simple-include');
 // const fs = require('fs');
@@ -81,6 +82,12 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].min.css'
+        }),
+        // Builds the pages in the project root from assets/src/pages + assets/src/partials
+        new HtmlIncludesPlugin({
+            pagesDir: path.resolve(__dirname, 'assets/src/pages'),
+            partialsDir: path.resolve(__dirname, 'assets/src/partials'),
+            outputDir: __dirname,
         }),
     ],
 

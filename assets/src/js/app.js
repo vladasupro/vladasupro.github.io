@@ -2,6 +2,8 @@
 
 import swiper from './modules/swiper';
 import equalTextHeight from './modules/equalTextHeight.js';
+import './modules/anchorLinks.js';
+import ticker from './modules/ticker.js';
 
 
 import '../scss/app.scss';
@@ -11,5 +13,6 @@ jQuery(document).ready(() => {
         jQuery('#wrapper').addClass('has-banner');
     }
   swiper();
+  ticker();
   equalTextHeight();
 });

@@ -149,6 +149,7 @@
 .projects {
     padding: 64px 0 120px;
     &-inner {
+        margin-bottom: 2em;
         &-footer {
             text-align: center;
             color: $grey;
@@ -159,7 +160,6 @@
     &-nav {
         li {
             border-bottom: 1px solid $grey;
-            margin-bottom: 4em;
         }
 
         li a {
@@ -167,7 +167,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 0;
+            padding: 4em 0;
             color: $dark;
 
             img {
@@ -271,16 +271,45 @@
     pointer-events: none;
 
     &-wrapper {
-        ul {
-            li {
-                width: initial;
-                cursor: pointer;
-                h5 {
-                    display: inline;
-                    text-transform: uppercase;
-                }
+        overflow: hidden;
+    }
+
+    &-track {
+        display: flex;
+        width: max-content;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        // Speed is set from JS (ticker.js) as a duration, so it stays the same
+        // number of pixels per second on every screen.
+        &.is-running {
+            animation: ticker-scroll var(--ticker-duration, 30s) linear infinite;
+            will-change: transform;
+        }
+
+        li {
+            flex: none;
+            // Spacing lives inside each item so both halves of the track are
+            // exactly the same width and the loop has no visible seam.
+            padding-right: 36px;
+            white-space: nowrap;
+
+            h5 {
+                display: inline;
+                margin: 0;
+                text-transform: uppercase;
             }
         }
+    }
+}
+
+@keyframes ticker-scroll {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
