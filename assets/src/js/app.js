@@ -2,6 +2,7 @@
 
 import swiper from './modules/swiper';
 import equalTextHeight from './modules/equalTextHeight.js';
+import './modules/anchorLinks.js';
 
 
 import '../scss/app.scss';
